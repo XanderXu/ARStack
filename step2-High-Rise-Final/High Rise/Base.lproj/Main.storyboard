@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="High_Rise" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDw-b1-Hlt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mkX-tm-u0j" appends="YES" id="v08-EX-GF5"/>
+                                </connections>
+                            </sceneKitView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-m5-GXy">
+                                <rect key="frame" x="171" y="50" width="34" height="66"/>
+                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-hF-2o3">
+                                <rect key="frame" x="124" y="478" width="126" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="MPZ-dz-0zY"/>
+                                    <constraint firstAttribute="height" constant="89" id="wPo-wc-E63"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="66"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yB7-1g-uRf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sDw-b1-Hlt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G6n-it-nax"/>
+                            <constraint firstItem="sDw-b1-Hlt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LGU-Fn-vWX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sDw-b1-Hlt" secondAttribute="bottom" id="RcN-KW-LJT"/>
+                            <constraint firstItem="4ct-hF-2o3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ttv-Ix-P97"/>
+                            <constraint firstItem="ACu-m5-GXy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vmn-2F-ji3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4ct-hF-2o3" secondAttribute="bottom" constant="100" id="kaq-X5-xaO"/>
+                            <constraint firstAttribute="trailing" secondItem="sDw-b1-Hlt" secondAttribute="trailing" id="nMF-33-MFf"/>
+                            <constraint firstItem="ACu-m5-GXy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="s11-qd-qIT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playButton" destination="4ct-hF-2o3" id="1XO-yM-91D"/>
+                        <outlet property="scnView" destination="sDw-b1-Hlt" id="zN4-dc-Dac"/>
+                        <outlet property="scoreLabel" destination="ACu-m5-GXy" id="FDn-n6-cJv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mkX-tm-u0j">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="vTC-ki-8Xu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
