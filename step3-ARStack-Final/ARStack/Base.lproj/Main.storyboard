@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARStack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hml-ir-Eee">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-A3-gUg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4uy-ck-d2N" appends="YES" id="qvY-Dr-9h1"/>
+                                </connections>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TR-Oh-zSR">
+                                <rect key="frame" x="137.5" y="509" width="99" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oiD-UI-Y7M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVk-60-VKj">
+                                <rect key="frame" x="301" y="40" width="54" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="restart">
+                                    <color key="titleColor" red="0.1268855035" green="0.58810228109999996" blue="0.95351511239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartButtonClick:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SBj-ef-iRj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初始化AR中..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aik-8U-wO9">
+                                <rect key="frame" x="20" y="606" width="111.5" height="21"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="017-0B-8zc">
+                                <rect key="frame" x="178.5" y="40" width="19" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5ah-A3-gUg" firstAttribute="top" secondItem="s4O-ti-Urf" secondAttribute="top" id="0wh-uk-0D1"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="trailing" secondItem="AVk-60-VKj" secondAttribute="trailing" constant="20" id="2yW-JR-YjH"/>
+                            <constraint firstItem="AVk-60-VKj" firstAttribute="top" secondItem="s4O-ti-Urf" secondAttribute="top" constant="20" id="6KZ-Ll-82t"/>
+                            <constraint firstItem="1TR-Oh-zSR" firstAttribute="centerX" secondItem="hml-ir-Eee" secondAttribute="centerX" id="Cfh-48-fj1"/>
+                            <constraint firstItem="Aik-8U-wO9" firstAttribute="leading" secondItem="s4O-ti-Urf" secondAttribute="leading" constant="20" id="EZQ-u1-nim"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="bottom" secondItem="5ah-A3-gUg" secondAttribute="bottom" id="I1h-vN-l2s"/>
+                            <constraint firstItem="017-0B-8zc" firstAttribute="centerX" secondItem="hml-ir-Eee" secondAttribute="centerX" id="NYk-hh-e5o"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aik-8U-wO9" secondAttribute="trailing" constant="20" id="OFv-zr-qyr"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="bottom" secondItem="1TR-Oh-zSR" secondAttribute="bottom" constant="80" id="SRv-PC-9Po"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="bottom" secondItem="Aik-8U-wO9" secondAttribute="bottom" constant="40" id="WD3-9d-xRD"/>
+                            <constraint firstItem="s4O-ti-Urf" firstAttribute="trailing" secondItem="5ah-A3-gUg" secondAttribute="trailing" id="jq6-3b-yqr"/>
+                            <constraint firstItem="017-0B-8zc" firstAttribute="top" secondItem="s4O-ti-Urf" secondAttribute="top" constant="20" id="ox0-XK-bEV"/>
+                            <constraint firstItem="5ah-A3-gUg" firstAttribute="leading" secondItem="s4O-ti-Urf" secondAttribute="leading" id="r3h-hd-BUb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s4O-ti-Urf"/>
+                    </view>
+                    <connections>
+                        <outlet property="playButton" destination="1TR-Oh-zSR" id="zM7-ZH-DzW"/>
+                        <outlet property="restartButton" destination="AVk-60-VKj" id="rgb-UZ-KWH"/>
+                        <outlet property="sceneView" destination="5ah-A3-gUg" id="gfd-1q-BaP"/>
+                        <outlet property="scoreLabel" destination="017-0B-8zc" id="Ham-Th-eTA"/>
+                        <outlet property="sessionInfoLabel" destination="Aik-8U-wO9" id="vmY-bS-I4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4uy-ck-d2N">
+                    <connections>
+                        <action selector="handleTap:" destination="BV1-FR-VrT" id="UTp-EB-41i"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+</document>
