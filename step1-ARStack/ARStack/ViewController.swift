@@ -19,8 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var restartButton: UIButton!
+    // 识别出平面后,放上游戏的基础节点,相对固定于真实世界场景中
     weak var baseNode: SCNNode?
+    // 识别出平面锚点后,用来标识识别的平面,会不断刷新大小和位置
     weak var planeNode: SCNNode?
+    // 刷新次数,超过一定次数才说明这个平面足够明显,足够稳定.可以开始游戏
     var updateCount: NSInteger = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
+        //显示debug特征点
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // Create a new scene
         let scene = SCNScene()
