@@ -122,7 +122,11 @@ class ViewController: UIViewController {
         //4.载入游戏场景
         
         gameNode?.removeFromParentNode()//移除前一次游戏的场景节点
-        gameNode = SCNScene(named: "art.scnassets/Scenes/GameScene.scn")!.rootNode
+        gameNode = SCNNode()
+        let gameChildNodes = SCNScene(named: "art.scnassets/Scenes/GameScene.scn")!.rootNode.childNodes
+        for node in gameChildNodes {
+            gameNode?.addChildNode(node)
+        }
         baseNode?.addChildNode(gameNode!)
         
         height = 0
