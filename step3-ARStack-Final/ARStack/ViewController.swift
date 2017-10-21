@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         boxNode.position.z = -actionOffet
         boxNode.position.y = Float(boxheight * 0.5)
         boxNode.name = "Block\(height)"
-        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.3*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
+        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
         gameNode?.addChildNode(boxNode)
     }
     @IBAction func restartButtonClick(_ sender: UIButton) {
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
             currentBoxNode.geometry = SCNBox(width: CGFloat(newSize.x), height: boxheight, length: CGFloat(newSize.z), chamferRadius: 0)
             currentBoxNode.position = SCNVector3Make(currentPosition.x + (offset.x/2), currentPosition.y, currentPosition.z + (offset.z/2))
             currentBoxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: currentBoxNode.geometry!, options: nil))
-            currentBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.3*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
+            currentBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
             addBrokenBlock(currentBoxNode)
             addNewBlock(currentBoxNode)
             playSound(sound: "SliceBlock", node: currentBoxNode)
@@ -198,7 +198,7 @@ extension ViewController {
         let newBoxNode = SCNNode(geometry: SCNBox(width: CGFloat(newSize.x), height: boxheight, length: CGFloat(newSize.z), chamferRadius: 0))
         newBoxNode.position = SCNVector3Make(currentBoxNode.position.x, currentPosition.y + Float(boxheight), currentBoxNode.position.z)
         newBoxNode.name = "Block\(height+1)"
-        newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat((height+1) % 10), green: 0.3*CGFloat((height+1)%30), blue: 1-0.1 * CGFloat((height+1) % 10), alpha: 1)
+        newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat((height+1) % 10), green: 0.03*CGFloat((height+1)%30), blue: 1-0.1 * CGFloat((height+1) % 10), alpha: 1)
         
         if height % 2 == 0 {
             newBoxNode.position.x = -actionOffet
@@ -228,7 +228,7 @@ extension ViewController {
             
             // 3
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.3*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
             gameNode?.addChildNode(brokenBoxNode)
             
             // 4
@@ -244,7 +244,7 @@ extension ViewController {
             brokenBoxNode.position.z = currentBoxNode.position.z
             
             brokenBoxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: brokenBoxNode.geometry!, options: nil))
-            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.3*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
+            brokenBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
             gameNode?.addChildNode(brokenBoxNode)
         }
     }
