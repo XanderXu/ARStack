@@ -128,12 +128,7 @@ class ViewController: UIViewController {
             gameNode?.addChildNode(node)
         }
         baseNode?.addChildNode(gameNode!)
-        
-        height = 0
-        scoreLabel.text = "\(height)"
-        
-        direction = true
-        perfectMatches = 0
+        resetGameData()
         
         
         let boxNode = SCNNode(geometry: SCNBox(width: boxLengthWidth, height: boxheight, length: boxLengthWidth, chamferRadius: 0))
@@ -361,12 +356,23 @@ extension ViewController {
         resetTracking()
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         //3.重置游戏数据
+        resetGameData()
+        print("resetAll")
+    }
+    private func resetGameData() {
         height = 0
         scoreLabel.text = "\(height)"
         
         direction = true
         perfectMatches = 0
-        print("resetAll")
+        previousSize = SCNVector3(boxLengthWidth, boxheight, boxLengthWidth)
+        previousPosition = SCNVector3(0, boxheight*0.5, 0)
+        currentSize = SCNVector3(boxLengthWidth, boxheight, boxLengthWidth)
+        currentPosition = SCNVector3Zero
+        
+        offset = SCNVector3Zero
+        absoluteOffset = SCNVector3Zero
+        newSize = SCNVector3Zero
     }
 }
 
