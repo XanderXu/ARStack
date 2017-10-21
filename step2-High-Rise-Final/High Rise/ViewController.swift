@@ -93,7 +93,14 @@ class ViewController: UIViewController {
     
     direction = true
     perfectMatches = 0
+    previousSize = SCNVector3(boxLengthWidth, boxheight, boxLengthWidth)
+    previousPosition = SCNVector3(0, boxheight*0.5, 0)
+    currentSize = SCNVector3(boxLengthWidth, boxheight, boxLengthWidth)
+    currentPosition = SCNVector3Zero
     
+    offset = SCNVector3Zero
+    absoluteOffset = SCNVector3Zero
+    newSize = SCNVector3Zero
     
     let boxNode = SCNNode(geometry: SCNBox(width: boxLengthWidth, height: boxheight, length: boxLengthWidth, chamferRadius: 0))
     boxNode.position.z = -actionOffet
