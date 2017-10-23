@@ -136,6 +136,7 @@ class ViewController: UIViewController {
         boxNode.position.y = Float(boxheight * 0.5)
         boxNode.name = "Block\(height)"
         boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
+        boxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: boxNode.geometry!, options: nil))
         gameNode?.addChildNode(boxNode)
     }
     @IBAction func restartButtonClick(_ sender: UIButton) {
@@ -170,7 +171,7 @@ class ViewController: UIViewController {
             
             currentBoxNode.geometry = SCNBox(width: CGFloat(newSize.x), height: boxheight, length: CGFloat(newSize.z), chamferRadius: 0)
             currentBoxNode.position = SCNVector3Make(currentPosition.x + (offset.x/2), currentPosition.y, currentPosition.z + (offset.z/2))
-            currentBoxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: currentBoxNode.geometry!, options: nil))
+            currentBoxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: currentBoxNode.geometry!, options: nil))
             currentBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat(height % 10), green: 0.03*CGFloat(height%30), blue: 1-0.1 * CGFloat(height % 10), alpha: 1)
             addBrokenBlock(currentBoxNode)
             addNewBlock(currentBoxNode)
@@ -198,7 +199,7 @@ extension ViewController {
         newBoxNode.position = SCNVector3Make(currentBoxNode.position.x, currentPosition.y + Float(boxheight), currentBoxNode.position.z)
         newBoxNode.name = "Block\(height+1)"
         newBoxNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.1 * CGFloat((height+1) % 10), green: 0.03*CGFloat((height+1)%30), blue: 1-0.1 * CGFloat((height+1) % 10), alpha: 1)
-        
+        newBoxNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: newBoxNode.geometry!, options: nil))
         if height % 2 == 0 {
             newBoxNode.position.x = -actionOffet
         } else {
