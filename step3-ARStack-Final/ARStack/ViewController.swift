@@ -178,6 +178,13 @@ class ViewController: UIViewController {
             playSound(sound: "SliceBlock", node: currentBoxNode)
             
             if height >= 5 {
+                gameNode?.enumerateChildNodes({ (node, stop) in
+                    
+                    if node.position.y < Float(self.height-5) * Float(boxheight) {
+                        node.isHidden = true
+                    }
+                })
+                
                 let moveUpAction = SCNAction.move(by: SCNVector3Make(0.0, Float(-boxheight), 0.0), duration: 0.2)
                 
                 gameNode?.runAction(moveUpAction)
@@ -302,6 +309,11 @@ extension ViewController {
         
         gameNode?.runAction(fullAction)
         playButton.isHidden = false
+        gameNode?.enumerateChildNodes({ (node, stop) in
+            
+            node.isHidden = false
+            
+        })
     }
     private func updateSessionInfoLabel(for frame: ARFrame, trackingState: ARCamera.TrackingState) {
         // 更新UI,反馈AR状态.
