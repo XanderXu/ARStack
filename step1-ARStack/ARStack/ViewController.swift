@@ -138,10 +138,10 @@ extension ViewController {
         //0.显示按钮
         playButton.isHidden = true
         sessionInfoLabel.isHidden = false
-        //1.重置更新次数
-        updateCount = 0
-        //2.重置平面检测配置,重启检测
+        //1.重置平面检测配置,重启检测
         resetTracking()
+        //2.重置更新次数
+        updateCount = 0
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
 }

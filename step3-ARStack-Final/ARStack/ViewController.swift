@@ -363,10 +363,10 @@ extension ViewController {
         //0.显示按钮
         playButton.isHidden = true
         sessionInfoLabel.isHidden = false
-        //1.重置更新次数
-        updateCount = 0
-        //2.重置平面检测配置,重启检测
+        //1.重置平面检测配置,重启检测
         resetTracking()
+        //2.重置更新次数
+        updateCount = 0
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         //3.重置游戏数据
         resetGameData()
@@ -404,8 +404,8 @@ extension ViewController:ARSCNViewDelegate {
     // node添加到新的锚点上之后(一般在这个方法中添加几何体节点,作为node的子节点)
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
     
-        //1.获取捕捉到的平地锚点,只识别并添加一个平面(似乎是多线程的问题,有时updateCount重置后又更新了一次变成了1,故updateCount改为 <= 1比较合理)
-        if let planeAnchor = anchor as? ARPlaneAnchor,node.childNodes.count < 1,updateCount <= 1 {
+        //1.获取捕捉到的平地锚点,只识别并添加一个平面
+        if let planeAnchor = anchor as? ARPlaneAnchor,node.childNodes.count < 1,updateCount < 1 {
             print("捕捉到平地")
             //2.创建一个平面    （系统捕捉到的平地是一个不规则大小的长方形，这里笔者将其变成一个长方形）
             let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
