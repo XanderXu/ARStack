@@ -179,7 +179,9 @@ class ViewController: UIViewController {
             
             if height >= 5 {
                 gameNode?.enumerateChildNodes({ (node, stop) in
-                    
+                    if node.light != nil {//灯光节点不隐藏
+                        return
+                    }
                     if node.position.y < Float(self.height-5) * Float(boxheight) {
                         node.isHidden = true
                     }
