@@ -342,7 +342,13 @@ extension ViewController {
         case .limited(.initializing):
             message = "初始化AR中."
             
-        }
+        case .limited(.relocalizing):
+            message = "重新定位AR中."
+
+        case .limited(_):
+            message = "有限."
+
+      }
         print(message)
         sessionInfoLabel.text = message
         sessionInfoLabel.isHidden = message.isEmpty
